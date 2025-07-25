@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Galeria de Imagens</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+
+  <header>
+    <button id="toggle-theme">🌙 Tema Escuro</button>
+
+    <div class="filters">
+      <select id="orientation-filter">
+  <option value="" disabled selected>🖼️ Orientação</option>
+  <option value="landscape">Paisagem</option>
+  <option value="portrait">Retrato</option>
+  <option value="squarish">Quadrado</option>
+</select>
+
+<select id="color-filter">
+  <option value="" disabled selected>🎨 Cor</option>
+  <option value="black_and_white">P&B</option>
+  <option value="black">Preto</option>
+  <option value="white">Branco</option>
+  <option value="yellow">Amarelo</option>
+  <option value="orange">Laranja</option>
+  <option value="red">Vermelho</option>
+  <option value="purple">Roxo</option>
+  <option value="magenta">Magenta</option>
+  <option value="green">Verde</option>
+  <option value="teal">Azul-petróleo</option>
+  <option value="blue">Azul</option>
+</select>
+
+<select id="order-filter">
+  <option value="" disabled selected>📊 Ordenar por</option>
+  <option value="latest">Mais recentes</option>
+  <option value="popular">Mais populares</option>
+</select>
+    </div>
+
+    <div class="search-box">
+      <input type="text" id="search-input" placeholder="🔍 Pesquisar imagens..." />
+    </div>
+
+<div class="filter-group">
+  <div class="filter-buttons">
+    <button data-category="nature" class="active">Natureza</button>
+    <button data-category="city">Cidade</button>
+    <button data-category="people">Pessoas</button>
+    <button data-category="animals">Animais</button>
+  <button data-category="food">Comida</button>
+  <button data-category="technology">Tecnologia</button>
+  <button data-category="space">Espaço</button>
+  <button data-category="architecture">Arquitetura</button>
+  <button data-category="art">Arte</button>
+  <button data-category="fashion">Moda</button>
+    <button data-api="unsplash" class="active">Aleatórias</button>
+  <button data-api="pexels">Tendências</button>
+  <button id="favorites-btn">❤️ Favoritos</button>
+
+</div>
+
+
+    <!-- Popup de compartilhamento (modelo global para fallback) -->
+    <div class="share-popup">
+      <a href="#" class="share-facebook" title="Compartilhar no Facebook" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="#" class="share-twitter" title="Compartilhar no Twitter" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="#" class="share-whatsapp" title="Compartilhar no WhatsApp" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+  </header>
+
+  <div class="loader" id="loader">Carregando imagens...</div>
+
+  <main class="gallery" id="gallery"></main>
+
+  <script src="script.js"></script>
+</body>
+</html>

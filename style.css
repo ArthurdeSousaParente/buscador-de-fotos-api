@@ -1,0 +1,317 @@
+/* ========== RESET & BASE ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #e9eaeb;
+  color: #333;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* ========== HEADER ========== */
+header {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  background: linear-gradient(135deg, #0a0f12, #5c6c7f);
+  color: white;
+  border-bottom: 5px solid #000;
+  position: relative;
+}
+
+/* ========== TEMA ========= */
+#toggle-theme {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 1000;
+  background: #eee;
+  color: #333;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ========== DARK MODE ========== */
+body.dark-mode {
+  background-color: #111;
+  color: #eee;
+}
+
+body.dark-mode .item {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode #toggle-theme {
+  background: #333;
+  color: #fff;
+}
+
+body.dark-mode select,
+body.dark-mode input {
+  background-color: #222;
+  color: #fff;
+  border-color: #555;
+}
+
+body.dark-mode .favorite-icon {
+  color: #ccc;
+}
+
+body.dark-mode .favorite-icon.favorited {
+  color: #ff6f91;
+}
+
+body.dark-mode .share-popup {
+  background-color: #222;
+}
+
+body.dark-mode .share-popup a i {
+  color: #ccc;
+}
+
+/* ========== GALLERY ========== */
+.gallery {
+  max-width: 1600px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.item {
+  aspect-ratio: 1 / 1;
+  background: #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+}
+
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.item:hover img {
+  transform: scale(1.06);
+}
+
+/* Aspect ratios */
+.item.landscape {
+  aspect-ratio: 16 / 9;
+}
+
+.item.portrait {
+  aspect-ratio: 9 / 16;
+}
+
+/* ========== ICONES ========== */
+.favorite-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.favorite-icon.favorited {
+  color: #ff4757;
+  text-shadow: 0 0 8px #ff4757;
+}
+
+.download-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 70px;
+  color: white;
+  font-size: 18px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 7.5px 13px;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.item:hover .download-icon {
+  opacity: 1;
+}
+
+.share-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 6px 8px;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 11;
+}
+
+.item:hover .share-icon {
+  opacity: 1;
+}
+
+.share-popup {
+  position: absolute;
+  bottom: 40px;
+  right: 10px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 6px 8px;
+  display: flex;
+  gap: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 20;
+}
+
+.share-popup.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.share-popup a {
+  font-size: 18px;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.share-popup a:hover {
+  color: #0066ff;
+}
+
+/* ========== BARRA DE PESQUISA E FILTROS ========== */
+.search-box {
+  display: flex;
+  justify-content: center;
+  margin: 12px auto 8px;
+}
+
+#search-input {
+  width: 80%;
+  max-width: 500px;
+  padding: 10px 15px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: border 0.3s;
+}
+
+#search-input:focus {
+  border-color: #007bff;
+}
+
+/* ========== FILTROS ========== */
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px auto;
+  flex-wrap: wrap;
+}
+
+.filters select {
+  padding: 8px 12px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1.5px solid #ccc;
+  background: #fff;
+  color: #555;
+  cursor: pointer;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.filters select:invalid {
+  color: #aaa;
+}
+
+.filters select:focus {
+  border-color: #007bff;
+}
+
+/* ========== GRUPOS DE FILTROS ========== */
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.filter-buttons,
+.api-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-buttons button,
+.api-buttons button {
+  padding: 0.75rem 1.4rem;
+  font-size: 1rem;
+  border: 2px solid white;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-weight: 500;
+}
+
+.filter-buttons button.active,
+.api-buttons button.active {
+  background-color: white;
+  color: #0066ff;
+  transform: scale(1.05);
+}
+
+/* Botão de Favoritos */
+#favorites-btn {
+  background-color: #ff4757;
+  border-color: #ff6b81;
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#favorites-btn.active {
+  background-color: #ff6b81;
+  transform: scale(1.05);
+}
+
+/* ========== LOADER ========== */
+.loader {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 2rem;
+  display: none;
+}
+
+
